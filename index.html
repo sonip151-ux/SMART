@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>Constructor de metas SMART</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{color-scheme:light;--ink:#182e38;--muted:#526773;--line:#cfdcdd;--base:#f3f7f6;--paper:#fff;--teal:#00685f;--soft:#e0f2eb;--ok:#176641;--warn:#854300;--review:#fff4df;--field:#fbfdfc}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--base);font:16px/1.55 'Segoe UI',Arial,sans-serif}::selection{background:#afe6d5;color:#123e38}a,button,input,select,textarea,summary{touch-action:manipulation}:focus-visible{outline:3px solid #3988ca;outline-offset:3px}.wrap,main,.bar{width:min(1180px,calc(100% - 72px));margin-inline:auto}.bar{display:flex;justify-content:space-between;align-items:center;min-height:66px;gap:12px}.top{background:#102f3d;color:white}.brand{display:flex;align-items:center;gap:12px;font-weight:650;letter-spacing:-.02em}.brand i{width:25px;height:25px;background:#9de2c9;clip-path:polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)}.top a{color:#fff;text-decoration:none;font-size:.9rem;border:1px solid #67808b;border-radius:7px;padding:8px 13px}.top a:hover{background:#234956}.hero{background:#d7efe7;color:#133f3c;overflow:hidden}.wrap{position:relative;padding-block:34px 37px}.wrap h1{position:relative;z-index:1;font:500 clamp(36px,4.3vw,62px)/1.04 'Georgia',serif;letter-spacing:-.038em;margin:0 0 16px;max-width:740px;text-wrap:balance}.wrap p{position:relative;z-index:1;font-size:15px;max-width:min(660px,69%);margin:0}.art{position:absolute;width:235px;height:235px;right:20px;top:50%;transform:translateY(-50%) rotate(-16deg)}.art i{width:50%;height:50%;position:absolute;background:#78baa7;border-radius:100% 0 60% 0}.art i:nth-child(2){left:50%;transform:rotate(90deg);background:#287e70}.art i:nth-child(3){top:50%;left:50%;transform:rotate(180deg);background:#a4d4be}.art i:last-child{top:50%;transform:rotate(270deg);background:#4c9e89}
+main{padding-block:32px 60px}.work{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}.editor,.options,#out>.card{background:var(--paper);border:1px solid var(--line);border-radius:16px}.editor,#out>.card{padding:clamp(20px,2.8vw,36px)}h2,h3{margin:0;line-height:1.25;letter-spacing:-.025em}h2{font-size:clamp(21px,2.2vw,30px);font-weight:630}.n{display:inline-grid;place-items:center;width:28px;height:28px;flex:none;font:650 14px/1 'Segoe UI',sans-serif;color:var(--teal);background:var(--soft);border-radius:9px}.editor h2,#out h2{display:flex;align-items:center;gap:12px;margin-bottom:18px}.options{padding:22px 24px}.options details{max-width:100%}.options>h2{font-size:21px;margin-bottom:12px}.options details{border-top:1px solid var(--line)}summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:66px;font-size:15px;font-weight:600;line-height:1.35}summary::-webkit-details-marker{display:none}summary:after{content:'';margin-left:auto;width:8px;height:8px;flex:none;border:solid var(--muted);border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}details[open]>summary:after{transform:rotate(225deg)}.option-body{padding-bottom:18px}.option-body .row{grid-template-columns:1fr}label{display:block;font-weight:600;font-size:14px;margin:12px 0 5px}textarea,input,select{width:100%;min-width:0;background:var(--field);color:var(--ink);border:1px solid #849a9e;border-radius:8px;padding:11px 12px;font:inherit}textarea{resize:vertical;display:block;min-height:78px}textarea::placeholder,input::placeholder{color:var(--muted);opacity:1}#txt{min-height:160px;font-size:17px;padding:16px}.btns{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}button{background:var(--teal);color:white;border:1px solid transparent;border-radius:8px;min-height:44px;padding:9px 16px;font:600 15px/1.4 'Segoe UI',sans-serif;cursor:pointer}button:hover{filter:brightness(.9)}button.s{background:var(--paper);color:var(--teal);border-color:var(--line)}.examples{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.examples button{min-height:38px;font-size:14px}.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px}.hint{color:var(--muted);font-size:14px}#out{margin:26px auto 0;max-width:1000px;scroll-margin:16px}#out>.card{margin-bottom:18px}.chk{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line)}.chk b{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:var(--review);color:var(--warn)}.chk.ok b{background:var(--soft);color:var(--ok)}.meta{padding:20px;background:var(--soft);border-radius:9px;font-size:18px;overflow-wrap:anywhere}ul{padding-inline-start:23px}li+li{margin-top:6px}
+@media(max-width:800px){.wrap,main,.bar{width:calc(100% - 36px)}.work{grid-template-columns:1fr}.art{width:160px;height:160px;right:-60px;opacity:.45}.wrap h1,.wrap p{max-width:80%}.work{gap:16px}.options{padding:18px 20px}}
+@media(max-width:520px){.bar{min-height:57px}.wrap{padding:26px 0}.wrap h1{font-size:37px}.wrap p{max-width:100%}.art{width:86px;height:86px;right:-24px;top:42px}.row{grid-template-columns:1fr}main{padding-top:18px}.options>h2{margin-bottom:9px}.editor .btns button{width:100%}}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#eff8f5;--muted:#b0c5c6;--line:#415853;--base:#10211f;--paper:#1b302e;--teal:#84d9bd;--soft:#284a40;--ok:#a9e8bf;--warn:#ffcd8e;--review:#513a25;--field:#152825}:root[data-theme="dark"] .hero{background:#20463e;color:#e6f7ee}:root[data-theme="dark"] button:not(.s){color:#11362c}
+@media print{.top,.noprint,.art{display:none!important}body,main,.editor,.options,#out>.card{background:white;color:black}main,.wrap{width:100%;padding:0}.hero{background:white}.work{display:block}#out .card{break-inside:auto}.options{border:none;padding:0}.editor,#out>.card{border:none;padding:12px 0}.chk,li,.meta{break-inside:avoid}h2{break-after:avoid}}
+#theme-toggle{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;border:1px solid #779197;font-size:14px;padding:6px 12px}
+#theme-toggle[aria-pressed="true"]{background:#c3eadc;color:#183c34;border-color:#c3eadc}#theme-toggle:hover{background:#244753;color:white;filter:none}
+#theme-toggle svg{width:18px;height:18px}
+.hero .credit{margin-top:12px;font-size:14px}footer{padding:16px 24px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}footer p{margin:0}
+.guide{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:clamp(20px,3vw,36px);margin:24px 0}.guide ol{padding-left:1.5rem}.guide p:last-child{margin-bottom:0}button[hidden]{display:none}button:disabled{opacity:.65;cursor:default}.summary-help,.field-help{display:block;color:var(--muted);font-size:14px;font-weight:400;line-height:1.45}.summary-help{margin-top:3px}.options summary{padding-block:12px}.field-help{margin:3px 0 6px}</style>
+<script>
+const systemTheme = matchMedia("(prefers-color-scheme: dark)");
+let chosenTheme;
+try { chosenTheme = localStorage.getItem("smart-care-theme"); } catch {}
+function applyTheme() {
+  const theme = ["light", "dark"].includes(chosenTheme) ? chosenTheme : (systemTheme.matches ? "dark" : "light");
+  document.documentElement.dataset.theme = theme;
+  document.getElementById("theme-toggle")?.setAttribute("aria-pressed", String(theme === "dark"));
+}
+applyTheme();
+systemTheme.addEventListener("change", applyTheme);
+</script></head><body>
+<div class="top"><div class="bar"><span class="brand"><i aria-hidden="true"></i>Metas de cuidado</span><button type="button" class="s" id="theme-toggle" aria-pressed="false"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" stroke="none"/></svg>Modo oscuro</button></div></div><header class="hero"><div class="wrap"><div class="art" aria-hidden="true"><i></i><i></i><i></i><i></i></div><h1>Constructor de metas de cuidado SMART</h1><p>Estándar DE-ENF-EO-052 · Concerta con el paciente (máx. 2 h tras la transferencia) y evalúa en cada transferencia</p><p class="credit">Elaborado por Sonia Patricia Acosta Rodriguez y Ginett Vanessa Garzon Barreto.</p></div></header>
+<form name="metas-smart" method="POST" data-netlify="true" hidden><input name="referencia"><input name="version"><input name="fecha"><input name="piso"><textarea name="meta"></textarea></form><main><section class="guide"><h2>Ruta del aplicativo</h2><ol><li><strong>Valoración y patrón alterado.</strong> Identifica el patrón afectado y selecciona el dominio y la meta HISIS que correspondan.</li><li><strong>Necesidad expresada.</strong> Pregunta al paciente o cuidador qué le preocupa y qué desea lograr.</li><li><strong>Propuesta de meta SMART.</strong> Escribe la meta inicial y pulsa «Analizar y construir meta SMART».</li><li><strong>Validación y adaptación profesional.</strong> Revisa los cinco criterios y ajusta la propuesta según tu valoración.</li><li><strong>Concertación y registro.</strong> Acuerda la meta con el paciente o cuidador y ajusta el plan si es necesario.</li></ol><p class="hint">Usa datos sin identificar al paciente. Omite nombres, documentos, números de historia clínica y datos de contacto.</p></section><div class="work"><aside class="options"><h2>Contexto de la meta</h2><details><summary id="option1"><span class="n">1</span><span><span id="context-title-0">Dominio HISIS (parámetro a evaluar) · opcional</span><span class="summary-help">Abre la lista de dominios para elegir qué vas a evaluar. Al seleccionar uno, verás sus metas HISIS.</span></span></summary><div class="option-body">
+<p class="hint">Selecciona el dominio del patrón alterado y luego el objetivo HISIS específico.</p><select id="dom" aria-labelledby="context-title-0"></select>
+<label for="mh">Meta HISIS (opcional)</label><select id="mh"></select></div></details><details><summary id="option2"><span class="n">2</span><span><span id="context-title-1">Preferencia del paciente · opcional</span><span class="summary-help">Abre las opciones de descanso, aseo, entorno y espiritualidad. Elige la que el paciente quiera incluir en su cuidado.</span></span></summary><div class="option-body">
+<select id="pref" aria-labelledby="context-title-1"></select><p class="hint">Elige la preferencia que el paciente desea incorporar al cuidado.</p></div></details><details><summary id="option3"><span class="n">3</span><span><span id="context-title-2">Acercamiento y valoración concertada · opcional</span><span class="summary-help">Abre los tres campos para describir el servicio, tu prioridad de cuidado y lo que preocupa al paciente o cuidador.</span></span></summary><div class="option-body">
+<p class="hint">Indica dónde se brinda el cuidado, qué priorizas y qué necesidad expresa el paciente o cuidador.</p><div class="row"><div><label for="ctx">Servicio / contexto clínico</label><input id="ctx" placeholder="Ej.: Urgencias, piso 5"></div><div><label for="pri">Prioridad del profesional de enfermería</label><input id="pri"></div></div>
+<label for="need">Necesidad o angustia referida por el paciente, familiar o cuidador</label><input id="need"></div></details></aside><section class="editor"><h2 id="goal-title"><span class="n">4</span>Escribe tu meta como la pensaste</h2>
+<label for="floor">Piso donde se usa el aplicativo (obligatorio)</label><input id="floor" required maxlength="60" placeholder="Ej.: Piso 3"><p class="hint">Escribe con tus palabras qué esperas que el paciente logre. Puedes escribir una meta propia o cargar un ejemplo.</p><textarea id="txt" aria-labelledby="goal-title" required placeholder="Escribe tu meta libremente, aunque sea ambigua o sin estructura SMART. No necesitas elegir dominio ni preferencia antes."></textarea>
+<div class="row noprint"><div><button class="s" onclick="ej(1)" aria-describedby="ex1">Ejemplo sin estructura</button><p class="hint" id="ex1">Reemplaza tu texto por una idea general, como «que el paciente camine más». Analízala para ver qué falta precisar.</p></div><div><button class="s" onclick="ej(2)" aria-describedby="ex2">Ejemplo con estructura</button><p class="hint" id="ex2">Reemplaza tu texto por una meta que ya incluye acción, medida, apoyo, beneficio y plazo. Analízala para ver cómo se reconoce cada criterio.</p></div></div><div class="noprint"><button onclick="run()" aria-describedby="analyzeHelp">Analizar y construir meta SMART</button><p class="hint" id="analyzeHelp">Revisa el texto del recuadro y abre los pasos 5 a 8 con la evaluación, la propuesta editable, los indicadores y el plan. La propuesta se registra automáticamente al analizarla.</p></div></section></div><div id="out" hidden tabindex="-1" aria-label="Revisión SMART">
+<div class="card"><h2><span class="n">5</span>Revisión SMART letra por letra</h2><p class="hint">En cada letra verás el fragmento que reconoció el constructor. Si falta un criterio, lee la corrección y ajusta el campo correspondiente en el paso 6.</p><p class="hint" id="sum"></p><div id="fb"></div></div>
+<div class="card"><h2><span class="n">6</span>Ajuste de parámetros SMART</h2><p class="hint">Ajusta la acción, la medida, los apoyos, el beneficio y el plazo. Pulsa «Actualizar meta» para aplicar tus cambios.</p>
+<div class="row"><div><label for="fs">S · Acción específica</label><span class="field-help" id="help-fs">Escribe en futuro qué hará o comunicará el paciente.</span><textarea aria-describedby="help-fs" id="fs" rows="2"></textarea></div><div><label for="fm">M · Medible (frecuencia, duración, escala)</label><span class="field-help" id="help-fm">Indica qué observarás o medirás y con qué frecuencia, cantidad o escala.</span><textarea aria-describedby="help-fm" id="fm" rows="2"></textarea></div>
+<div><label for="fa">A · Apoyo / recursos (alcanzable)</label><span class="field-help" id="help-fa">Anota quién ayudará al paciente o qué recurso hará posible la acción.</span><textarea aria-describedby="help-fa" id="fa" rows="2"></textarea></div><div><label for="fr">R · Relevancia / bienestar</label><span class="field-help" id="help-fr">Explica para qué le sirve al paciente alcanzar esta meta.</span><textarea aria-describedby="help-fr" id="fr" rows="2"></textarea></div>
+<div><label for="ft">T · Tiempo definido</label><span class="field-help" id="help-ft">Indica cuándo debe alcanzarse la meta, por ejemplo, al finalizar el turno.</span><textarea aria-describedby="help-ft" id="ft" rows="2"></textarea></div></div>
+<div class="btns noprint"><button onclick="updateGoal()">Actualizar meta</button><span id="updated" class="hint" role="status"></span></div>
+<h2 style="margin-top:14px">Meta SMART integral sugerida</h2><p class="hint">Aquí se reúnen los cinco campos en una sola frase. Léela con el paciente y, si necesitan cambiar algo, edita el campo correspondiente y pulsa «Actualizar meta».</p><div class="meta" id="res"></div>
+<p class="hint">Revisa lo que aparezca entre corchetes y ajusta los valores clínicos al paciente y al criterio del equipo.</p></div>
+<div class="card"><h2><span class="n">7</span>Indicadores de seguimiento y evaluación</h2><p class="hint">Aquí verás ejemplos de qué observar. Elige los indicadores pertinentes y acuerda cuándo comprobarán el avance.</p><div id="ind"></div></div>
+<div class="card"><h2><span class="n">8</span>Plan de cuidados y compromisos concertados</h2><p class="hint">Aquí verás las tareas de enfermería y los compromisos del paciente o cuidador. Revisen juntos quién hará cada tarea. Si ajustan la propuesta, pulsa «Actualizar meta» para incorporar la versión acordada al plan.</p><div id="plan"></div>
+<div class="btns noprint"><button id="newGoal" type="button" class="s" onclick="location.reload()">Iniciar otra meta</button><button onclick="cp()">Copiar todo</button><button class="s" onclick="window.print()">Imprimir plan</button></div><p class="hint" id="registerStatus" role="status"></p></div>
+</div>
+<section class="guide"><h2>Privacidad y uso</h2><p>El piso permite hacer seguimiento al uso del aplicativo. El registro no solicita el nombre ni otros datos que identifiquen a quien lo usa.</p><p>Al analizar una meta, se guardan la fecha, el piso y la propuesta SMART. Al actualizarla se conserva la versión más reciente. Evita nombres, documentos, números de historia clínica y otros identificadores en la meta y en el piso.</p><h2>Antes de implementar</h2><p>Validar el catálogo de patrones, las orientaciones, el diccionario SMART, los campos obligatorios y el flujo de autorización con referentes de enfermería, calidad, seguridad del paciente y protección de datos.</p></section></main>
+<footer><p>Elaborado por Sonia Patricia Acosta Rodriguez y Ginett Vanessa Garzon Barreto.</p></footer>
+<script>
+var D={
+"Binomio madre-hijo":{m:["Evaluar compromiso fetal","Favorecer el bienestar materno-fetal","Fomentar lactancia materna eficaz","Intervenir amenaza de parto pretérmino","Intervenir del puerperio inmediato/mediato y tardío","Intervenir en el trabajo de parto"],i:"La madre logrará un agarre efectivo del pecho",p:"en cada toma durante el turno"},
+"Cardiovascular":{m:["Mantener estabilidad hemodinámica","Mantener perfusión tisular","Prevenir/manejar estasis venoso","Prevenir y manejar arritmias","Restablecer niveles de volemia adecuados"],i:"El paciente mantendrá sus signos vitales dentro de los rangos indicados por el médico",p:"durante el turno, verificado en cada control"},
+"Crecimiento y desarrollo":{m:["Favorecer crecimiento y desarrollo de acuerdo a edad","Gestionar proceso de inmunización"],i:"El cuidador verbalizará el esquema de inmunización pendiente",p:"antes del egreso"},
+"Dolor":{m:["Controlar el dolor","Disminuir la intensidad del dolor"],i:"El paciente reportará una intensidad del dolor de 3 o menos en la escala numérica (0-10)",p:"dentro de 1 hora posterior a la administración de la analgesia prescrita"},
+"Eliminación":{m:["Eliminación intestinal efectiva","Eliminación urinaria efectiva","Mantener gasto urinario","Promover la deposición normal y continente"],i:"El paciente realizará una micción espontánea y registrará su volumen",p:"en las próximas 6 horas"},
+"Endocrino/metabólico":{m:["Mantener niveles óptimos de glicemia","Prevenir/manejar ictericia neonatal","Restablecer equilibrio hormonal"],i:"El paciente mantendrá su glucemia dentro del rango indicado por el médico",p:"en cada control programado durante el turno"},
+"Gastrointestinal":{m:["Favorecer la absorción digestiva","Mantener aporte calórico necesario","Controlar náuseas y vómito","Lograr tolerancia a la vía oral","Prevenir y manejar la hemorragia gastrointestinal"],i:"El paciente tolerará la vía oral sin náuseas ni vómito",p:"en las próximas 6 horas"},
+"Gineco-obstétrico":{m:["Evaluar pérdidas por genitales"],i:"La paciente identificará y reportará las pérdidas por genitales (cantidad y color)",p:"en cada ronda de enfermería del turno"},
+"Líquidos y electrolitos":{m:["Equilibrio electrolítico","Mantener balance hídrico-electrolítico"],i:"El paciente mantendrá un balance hídrico dentro del objetivo definido por el médico",p:"al cierre del turno"},
+"Neurológico":{m:["Favorecer termorregulación/hipotermia","Manejar alteración sensorial/cognitiva/perceptual","Prevenir deterioro neurológico","Reperfusión temprana"],i:"El paciente permanecerá orientado en persona, lugar y tiempo",p:"en cada valoración neurológica del turno"},
+"Nutricional":{m:["Favorecer el aumento de peso","Favorecer la disminución de peso","Mantener aporte nutricional","Prevenir déficit nutricional","Restablecer equilibrio nutricional"],i:"El paciente consumirá al menos 75 % de la dieta indicada (ajusta el valor)",p:"en cada comida durante el turno"},
+"Osteomuscular":{m:["Aumentar nivel de tolerancia a la actividad física","Gestionar la realización de terapia física/ocupacional","Promover y asistir la movilización o deambulación"],i:"El paciente deambulará con asistencia 2 veces (ajusta el valor)",p:"durante el turno"},
+"Psicosocial":{m:["Apoyar el proceso de duelo","Disminuir ansiedad","Disminuir riesgo de autolesión/lesión a otros","Favorecer comodidad/confort","Favorecer el autoestima","Fortalecer vínculo madre e hijo","Involucrar al familiar o cuidador en el proceso de atención"],i:"El paciente referirá un nivel de ansiedad de 3 o menos en una escala numérica (0-10)",p:"al finalizar el turno"},
+"Respiratorio":{m:["Equilibrio aporte-demanda de oxígeno","Lograr destete de ventilación mecánica","Mantener equilibrio ácido-básico adecuado","Mantener intercambio gaseoso","Mantener oxigenación adecuada","Mantener permeabilidad de las vías respiratorias","Prevenir/manejar dificultad respiratoria","Prevenir aspiración","Prevenir riesgo de muerte súbita del lactante"],i:"El paciente mantendrá una saturación de oxígeno dentro del rango indicado por el médico y sin signos de dificultad respiratoria",p:"durante el turno, verificado en cada control de signos vitales"},
+"Seguridad/protección":{m:["Controlar respuesta alérgica","Favorecer el proceso de cicatrización","Manejar inmunosupresión","Prevenir el riesgo de pérdida de integridad de piel y mucosas","Prevenir riesgo de caída","Prevenir y manejar la infección"],i:"El paciente [resultado específico de la meta HISIS seleccionada]",p:"durante el turno, verificado en cada ronda"}};
+var P={"Actividad y descanso":["apoyado por la agrupación de cuidados para respetar su horario de sueño y descanso","sue|desc|dorm|siesta|horario"],"Rutinas de baño y aseo":["apoyado por el baño programado en el horario que prefiere","baño|aseo|ducha"],"Entorno físico":["apoyado por la adaptación de luz tenue, cortinas y ruido en su habitación según su preferencia","luz|cortina|ruido|habitaci|entorno"],"Espiritualidad":["apoyado por un espacio para su práctica espiritual según su preferencia","espiritu|oraci|misa|rez|religi|fe\\b"]};
+var $=function(i){return document.getElementById(i)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+$("dom").add(new Option("— Sin seleccionar —",""));Object.keys(D).forEach(function(k){$("dom").add(new Option(k,k))});
+$("pref").add(new Option("— Sin seleccionar —",""));Object.keys(P).forEach(function(k){$("pref").add(new Option(k,k))});
+function mh(){var s=$("mh"),x=D[$("dom").value];s.length=0;s.add(new Option("— ninguna —",""));if(x){x.m.forEach(function(m){s.add(new Option(m,m))})}}
+$("dom").onchange=mh;mh();
+var infectionRisk=[/riesgo de (?:una )?infecci[oó]n|prevenir (?:una |la )?infecci[oó]n/i,"demostrará la medida de prevención de infecciones acordada con enfermería","al menos una vez bajo observación del equipo de enfermería","con el apoyo del equipo de enfermería","para reducir su riesgo de infección","antes de finalizar el turno"];
+var TP=[
+[/ca[ií]d/i,"no presentará caídas","con registro de la presencia o ausencia de caídas en cada ronda de enfermería","con el apoyo del equipo de enfermería y las medidas de prevención de caídas acordadas","favoreciendo su seguridad durante la movilización","durante el turno"],
+[/piel|cut[aá]ne|mucosa|[uú]lcera|lesi[oó]n(?:es)? por presi[oó]n/i,"mantendrá la integridad de la piel en las zonas valoradas","con registro de la presencia o ausencia de nuevas lesiones de piel en cada ronda de enfermería","con el apoyo del equipo de enfermería y las medidas de cuidado de la piel acordadas","favoreciendo la protección de la piel","durante el turno"],
+infectionRisk,
+[/dolor|analges|molest/i,"reportará su nivel de dolor","con una intensidad de 3 o menos en la escala numérica (0-10)","con la administración de la analgesia prescrita y el apoyo del equipo de enfermería","favoreciendo su comodidad y bienestar","dentro de 1 hora posterior a la analgesia prescrita"],
+[/ansied|angust|miedo|tranquil|estr[eé]s|duelo|psicosoc|[aá]nimo/i,"referirá su nivel de ansiedad","de 3 o menos en la escala numérica (0-10)","con el acompañamiento de su familiar y el apoyo del equipo de enfermería","favoreciendo su tranquilidad y bienestar emocional","al finalizar el turno"],
+[/camin|deambul|moviliz|levant|osteo|actividad f[ií]sica/i,"deambulará en el área de la habitación","3 veces durante el turno, durante 5 minutos cada vez","con la ayuda de un familiar y el apoyo del equipo de enfermería","favoreciendo su autonomía y la prevención de complicaciones","durante el turno, según tolerancia y evolución clínica"],
+[/respir|oxig|disnea|satura/i,"mantendrá una respiración sin dificultad","con una saturación de oxígeno dentro del rango indicado por el médico, verificada en cada control","con la cabecera elevada y el apoyo del equipo de enfermería","favoreciendo su oxigenación y confort","durante el turno"],
+[/dorm|sue[ñn]o|descans/i,"dormirá","al menos 5 horas continuas","con los cuidados agrupados por el equipo de enfermería","favoreciendo su descanso y recuperación","durante la noche"],
+[/n[aá]usea|v[oó]mit|gastro|v[ií]a oral|digest/i,"tolerará la vía oral","sin náuseas ni vómito","con dieta fraccionada y el apoyo del equipo de enfermería","favoreciendo su aporte nutricional","en las próximas 6 horas"],
+[/nutric|aliment|comer|com[ií]d|dieta|apetit|consum|peso/i,"consumirá su dieta","al menos 50 % de cada comida","sentado cómodamente y acompañado por su familiar","favoreciendo su aporte nutricional","durante el turno, en cada comida"],
+[/elimin|orin|micci|deposic|estre[ñn]|intestin/i,"realizará una micción espontánea","con registro del volumen","con acompañamiento al baño","favoreciendo su eliminación efectiva","en las próximas 6 horas"],
+[/infecc/i,"comunicará si presenta cambios en los signos de infección acordados con enfermería","con registro de la presencia o ausencia de estos cambios en cada ronda","con el apoyo del equipo de enfermería","favoreciendo la detección oportuna de cambios en su condición","durante el turno"],
+
+[/cardio|signos vitales|hemodin|arritm|perfusi|volemia/i,"mantendrá sus signos vitales estables","dentro de los rangos indicados por el médico, verificados en cada control","con el seguimiento del equipo de enfermería","favoreciendo su estabilidad clínica","durante el turno"],
+[/glucem|glicem|endocrin|metab[oó]l/i,"mantendrá su glucemia estable","dentro del rango indicado por el médico, en cada control programado","con el seguimiento del equipo de enfermería","favoreciendo su estabilidad metabólica","durante el turno"],
+[/l[ií]quid|electr[oó]l|h[ií]dric|balance/i,"mantendrá su balance hídrico","dentro del objetivo definido por el médico","con el registro de líquidos por el equipo de enfermería","favoreciendo su equilibrio hidroelectrolítico","al cierre del turno"],
+[/neurol|orienta|conscien|cognit/i,"permanecerá orientado en persona, lugar y tiempo","verificado en cada valoración neurológica","con el apoyo de su familiar y del equipo de enfermería","previniendo el deterioro neurológico","durante el turno"],
+[/lactanc|binomio|madre|pecho|puerper/i,"la madre logrará un agarre efectivo del pecho","en cada toma","con el apoyo y la educación del equipo de enfermería","favoreciendo la lactancia materna eficaz","durante el turno"],
+[/gineco|genital|sangrado|p[eé]rdida/i,"identificará y reportará las pérdidas por genitales","indicando cantidad y color","con el apoyo del equipo de enfermería","favoreciendo la detección temprana de complicaciones","en cada ronda de enfermería del turno"],
+[/crecim|inmuniz|vacun|desarroll/i,"su cuidador verbalizará el esquema de inmunización pendiente","identificando las vacunas faltantes","con la educación del equipo de enfermería","favoreciendo su crecimiento y desarrollo","antes del egreso"]
+];
+var w,TXT="";
+function take(re){var o=[];w=w.replace(re,function(x){o.push(x.trim());return " "});return o}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+function subj(s){return /^(el|la|su|los|las) /i.test(s)?cap(s):"El paciente "+s}
+function strip(s){return s.replace(/^[.,;\s]+/,"").replace(/[.,;\s]+$/,"")}
+function tema(t){
+  if($("mh").value==="Prevenir y manejar la infección" && infectionRisk[0].test(t))return infectionRisk;
+  for(var source of [$("mh").value,t,$("need").value+" "+$("pri").value,$("dom").value]){
+    for(var topic of TP)if(topic[0].test(source))return topic;
+  }
+  return null;
+}
+function ej(n){$("txt").value=n==1?"Que el paciente camine más y se sienta mejor":"El paciente caminará en el área de la habitación, con la ayuda de un familiar y el apoyo del equipo de enfermería, 3 veces al día, durante 5 minutos, en un plazo de 3 días, según tolerancia y evolución clínica, favoreciendo su autonomía y bienestar."}
+function row(l,nm,st,found,msg,fix){return '<div class="chk '+(st=="ok"?"ok":"no")+'"><b>'+(st=="ok"?"✓":st=="warn"?"!":"✕")+'</b><span><strong>'+l+' · '+nm+'</strong><br>'+(found?'Detectado: «'+esc(found)+'»':'No detectado en tu texto.')+'<br>'+msg+(fix&&st!="ok"?'<br><em>Corrección: '+esc(fix)+'</em>':'')+'</span></div>'}
+// Reconocer los fragmentos completos antes de buscar indicadores en texto libre.
+var phrases = new Map();
+for (var topic of TP) {
+  for (var [index, criterion] of [[2,"M"],[3,"A"],[4,"R"],[5,"T"]]) {
+    phrases.set(topic[index], criterion);
+  }
+}
+for (var preference of Object.values(P)) phrases.set(preference[0], "A");
+var byLength = [...phrases.keys()].sort((a,b) => b.length - a.length);
+var alternatives = byLength.map(phrase => phrase.replace(/[.*+?^$(){}|[\]\\]/g, "\\$&"));
+var phrasePattern = new RegExp("(^|[,;])\\s*(" + alternatives.join("|") + ")(?=\\s*[,.;]|\\s*$)", "gi");
+function readPhrases() {
+  var found = {M:[], A:[], R:[], T:[]};
+  w = w.replace(phrasePattern, function(match, separator, value) {
+    found[phrases.get(value.toLowerCase())].push(value);
+    return separator;
+  });
+  return found;
+}
+function updateGoal(){
+  if(!validFloor())return;
+  assemble();
+  $("txt").value=$("res").textContent;
+  if($("txt").value)run(true);
+  else { $("fb").textContent=""; $("sum").textContent="La meta está vacía."; }
+  $("updated").textContent="Meta actualizada y revisada.";
+}
+function run(updating){if(!validFloor())return;var t=$("txt").value.trim();if(!t){$("txt").focus();$("txt").setCustomValidity("Escribe tu meta para analizarla.");$("txt").reportValidity();$("txt").setCustomValidity("");return}
+w=" "+t.replace(/\[[^\]]*\]/g," ")+" ";
+var known=readPhrases();
+var T=known.T.concat(take(/(?:en un plazo de|dentro de|en las próximas?|en los próximos|durante (?:el|este|todo el) turno|durante la noche|durante \d+ (?:días|dias|semanas?)|antes de|al finalizar|al cierre|hasta|en \d+ (?:días|dias|horas|semanas?)|por \d+ (?:días|dias|semanas?)|en cada (?:transferencia|turno|ronda|control|toma|comida)|según (?:su )?tolerancia)[^,.;]*/gi));
+var M=known.M.concat(take(/(?:\d+\s*(?:veces|vez)(?:\s+(?:al|por|cada|durante)\s+(?:día|dia|turno|semana|hora|noche))?|durante \d+\s*(?:minutos?|min|horas?)|\d+\s*(?:minutos?|min)\b|\d+\s*(?:%|por ciento)[^,.;]*|\d+\s*(?:o menos|o más)[^,.;]*|(?:escala|eva)\b[^,.;]*|al menos \d+[^,.;]*|cada \d+\s*horas?)/gi));
+var A=known.A.concat(take(/(?:con (?:la |el |su )?(?:ayuda|apoyo|asistencia|acompañamiento|supervisión|compañía)[^,.;]*|asistid[oa][^,.;]*|acompañad[oa][^,.;]*|apoyad[oa] (?:por|con)[^,.;]*|con (?:un|una|el|la|su) (?:familiar|cuidador|enfermer[oa]|auxiliar|terapeuta|hij[oa]|espos[oa])[^,.;]*)/gi));
+var R=known.R.concat(take(/(?:favoreciendo|para (?:favorecer|prevenir|mejorar|lograr|evitar|promover|mantener)|con el (?:fin|objetivo) de|a fin de)[^.;]*/gi));
+var S=strip(w.replace(/\s+/g," ").replace(/\s+,/g,",").replace(/(,\s*)+/g,", "));S=strip(S.replace(/\s+y$/i,""));
+var tp=tema(t),pf=$("pref").value;
+var vag=/^(que\s+)?(el paciente\s+)?(controlar|mejorar|disminuir|manejar|favorecer|evitar|lograr|tratar|ayudar|estar)\b/i.test(S)||/\b(mejor|bien)\b/i.test(S);
+var fut=/[a-záéíóúñ]{3,}rá(?=\s|[,.;]|$)/i.test(S);
+var okS=S.split(/\s+/).length>=3&&fut&&!vag;
+var fS=okS?subj(S):(tp?subj(tp[1]):(S?cap(S)+" [reescribe con verbo en futuro y una acción observable]":"El paciente [acción concreta que hará o reportará]"));
+var fM=M.length?M.join(", "):(tp?tp[2]:"[cantidad, frecuencia, duración o escala]");
+var fA=A.length?A.join(", "):(tp?tp[3]:"[quién o qué apoya al paciente: familiar, equipo de enfermería, recursos]");if(pf&&!fA.includes(P[pf][0]))fA+=", "+P[pf][0];
+var fR=R.length?R.join(" "):(tp?tp[4]:"favoreciendo su bienestar y la prevención de complicaciones");
+var fT=T.length?T.join(", "):(tp?tp[5]:"durante el turno");
+var vm=/\b(m[aá]s|mucho|poco|bien|mejor|adecuad[oa]|normal)\b/i.test(t),n=0,h="";
+function add(st,x){if(st=="ok")n++;h+=x}
+add(okS?"ok":(S?"warn":"miss"),row("S","Específico",okS?"ok":(S?"warn":"miss"),S,okS?"Dice con claridad qué hará el paciente.":(S?"Evita verbos como «controlar» o «mejorar» y expresiones como «se sienta mejor»: no se pueden verificar. Redáctala con sujeto, verbo en futuro y una acción observable.":"No se entiende qué hará o reportará el paciente."),fS));
+var sm=M.length?"ok":"miss";add(sm,row("M","Medible",sm,M.join(", "),M.length?(vm?"Tiene un valor, pero palabras como «más», «mucho» o «mejor» siguen siendo vagas; usa cifras.":"Incluye frecuencia, duración o escala."):"Falta algo que se pueda contar o medir (escala, cantidad, frecuencia o duración). «Más» o «mejor» no son medibles.",fM));
+var sa=A.length?"ok":"warn";add(sa,row("A","Alcanzable (apoyo y recursos)",sa,A.join(" y "),A.length?"Indica quién o qué apoya al paciente para lograrlo.":"No dice con qué apoyo o recursos es posible lograrla. Define quién acompaña (familiar, equipo de enfermería) y bajo qué condición.",fA));
+var sr=R.length?"ok":"warn";add(sr,row("R","Relevante (bienestar)",sr,R.join(" "),R.length?"Explica para qué le sirve al paciente.":"No se ve para qué le sirve al paciente. Conéctala con su bienestar, su condición o la necesidad referida.",fR));
+var st=T.length?"ok":"miss";add(st,row("T","Tiempo definido",st,T.join(", "),T.length?"Tiene plazo.":"Falta el plazo. Define hasta cuándo y recuerda que la meta se evalúa en cada transferencia de cuidado.",fT));
+$("fb").innerHTML=h;
+$("sum").textContent=(updating?"La meta actualizada cumple ":"Tu texto cumple ")+n+" de 5 criterios SMART."+
+(n===5||updating?"":tp?" Revisa los parámetros sugeridos y ajústalos al paciente.":" Completa los parámetros entre corchetes.");
+if(updating){saveGoal();return}
+$("updated").textContent="";
+$("fs").value=fS;$("fm").value=fM;$("fa").value=fA;$("fr").value=fR;$("ft").value=fT;
+$("out").hidden=false;assemble();saveGoal();$("out").focus({preventScroll:true});$("out").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}
+function g(i){return strip($(i).value)}
+function li(a){return "<ul>"+a.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+"</ul>"}
+function assemble(){var s=g("fs"),m=g("fm"),a=g("fa"),r=g("fr"),t=g("ft");
+var meta=[s,a,m,t,r].filter(Boolean).join(", ");
+if(meta)meta+=".";
+var sb=s.replace(/^(el|la) (paciente|madre)\s+/i,"");
+var IND=["Cumplimiento de la frecuencia: lograr la meta de ("+m+").","Escala de satisfacción / tranquilidad: el paciente o cuidador manifiesta sentirse seguro y apoyado durante la actividad.","Evaluación clínica: ausencia de eventos adversos (caídas, fatiga extrema, dolor desmedido).","Evaluación en la transferencia: en cada transferencia de cuidado se verifica si la meta se cumplió o continúa."];
+var ROL=["Valorar signos vitales y estado clínico antes y después de la actividad ("+sb+").","Educar al paciente y a la familia sobre cómo brindar el apoyo de forma segura.","Monitorear y registrar el avance cuantitativo y cualitativo en la nota de enfermería.","Concertar la meta con el paciente y su familia durante la transferencia o máximo 2 horas después."];
+var COM=["Expresar oportunamente si presenta dolor, fatiga o mareo antes de iniciar.","Participar activamente en la actividad ("+sb+") respetando los tiempos acordados.","El familiar o cuidador acompañará en el apoyo acordado."];
+if(/infecc/i.test(s)){
+  IND[0]="Indicador acordado: "+m+".";
+  IND[2]="Seguimiento de infección: registrar lo observado en relación con la meta y comunicar los cambios al equipo.";
+  ROL[0]="Acordar con el paciente los signos o medidas de prevención que se revisarán durante el plazo definido.";
+  COM[0]="Comunicar al equipo los cambios observados y las dudas sobre las medidas acordadas.";
+}
+$("res").textContent=meta;$("ind").innerHTML=li(IND);
+$("plan").innerHTML="<strong>Rol del personal de enfermería</strong>"+li(ROL)+"<strong>Compromiso paciente / cuidador</strong>"+li(COM);
+TXT="META SMART CONCERTADA"+($("ctx").value?" ("+$("ctx").value+")":"")+"\n"+meta+"\n\nS: "+s+"\nM: "+m+"\nA: "+a+"\nR: "+r+"\nT: "+t+"\n\nINDICADORES\n- "+IND.join("\n- ")+"\n\nROL DE ENFERMERÍA\n- "+ROL.join("\n- ")+"\n\nCOMPROMISO PACIENTE / CUIDADOR\n- "+COM.join("\n- ")}
+const shared = location.protocol === "https:" || location.protocol === "http:";
+let recordId, created, pending=Promise.resolve(), revision=0, lastSaved=null, savedVersion=0;
+function validFloor(){
+ const floor=$("floor");floor.setCustomValidity(floor.value.trim()?"":"Indica el piso para continuar.");
+ if(!floor.reportValidity()){floor.focus();return false}return true;
+}
+function saveGoal(){
+ if(!recordId){recordId=Array.from(crypto.getRandomValues(new Uint8Array(24)),n=>n.toString(16).padStart(2,"0")).join("");created=new Date().toISOString()}
+ const record={id:recordId,piso:$("floor").value.trim(),meta:$("res").textContent,fecha:created};
+ const version=++revision;
+ $("registerStatus").textContent="Guardando registro…";$("newGoal").disabled=true;
+ pending=pending.then(async()=>{
+ try{
+ if(shared){
+  const snapshot=JSON.stringify([record.piso,record.meta]);
+  if(snapshot!==lastSaved){
+   if(!document.querySelector('form[name="metas-smart"] input[name="form-name"]'))throw Error();
+   const body=new URLSearchParams({"form-name":"metas-smart",referencia:record.id,version:String(savedVersion+1),fecha:record.fecha,piso:record.piso,meta:record.meta});
+   const response=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body.toString(),signal:AbortSignal.timeout(15000)});
+   if(!response.ok)throw Error();
+   lastSaved=snapshot; savedVersion++;
+  }
+ }
+ else localStorage.setItem("smart.meta."+recordId,JSON.stringify(record));
+ if(version===revision){$("registerStatus").textContent=shared?"Propuesta registrada. Pulsa «Iniciar otra meta» para contar una nueva.":"Meta guardada en este navegador.";$("newGoal").disabled=false}
+ }catch{if(version===revision)$("registerStatus").textContent="No se pudo guardar. Conserva esta página abierta y vuelve a pulsar «Actualizar meta» para reintentar."}
+ });
+}
+function cp(){if(navigator.clipboard){navigator.clipboard.writeText(TXT).catch(function(){})}}
+const optionalSections = Array.from(document.querySelectorAll(".options details"));
+let foldedBeforePrint = [];
+window.addEventListener("beforeprint", () => {
+  foldedBeforePrint = optionalSections.filter(section => !section.open);
+  foldedBeforePrint.forEach(section => { section.open = true; });
+});
+window.addEventListener("afterprint", () => {
+  foldedBeforePrint.forEach(section => { section.open = false; });
+});
+applyTheme();
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  chosenTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme();
+  try { localStorage.setItem("smart-care-theme", chosenTheme); } catch {}
+});
+</script></body></html>
